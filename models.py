@@ -74,3 +74,29 @@ class IndexPages(db.Model):
 
     def __repr__(self):
         return '<IndexPages {}>'.format(self.index_name)
+
+@dataclass
+class ContestBooks(db.Model):
+    id: int
+    c_id: int
+    idbp: int
+    validator: str
+    proofreader: str
+    validate_time: datetime
+    proofread_time: datetime
+    v_revision_id: int
+    p_revision_id: int
+
+
+    id = db.Column(db.Integer, primary_key=True)
+    c_id = db.Column(db.Integer, nullable=False)
+    idbp = db.Column(db.Integer, nullable=False)
+    validator = db.Column(db.String(190), nullable=False)
+    proofreader = db.Column(db.String(190), nullable=False)
+    validate_time = db.Column(db.DateTime, nullable=False)
+    proofread_time = db.Column(db.DateTime, nullable=False)
+    v_revision_id = db.Column(db.Integer, nullable=False)
+    p_revision_id = db.Column(db.Integer, nullable=False)
+
+    def __repr__(self):
+        return '<ContestBooks {}>'.format(self.id)

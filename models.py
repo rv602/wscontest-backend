@@ -47,4 +47,15 @@ class ContestAdmin(db.Model):
     user_name = db.Column(db.String(190), nullable=False)
 
     def __repr__(self):
-        return '<ContestAdmin {}>'.format(self.c_id)
+        return '<ContestAdmin {}>'.format(self.user_name)
+
+@dataclass
+class UnlistedUser(db.Model):
+    c_id: int
+    user_name: str
+
+    c_id = db.Column(db.Integer, primary_key=True)
+    user_name = db.Column(db.String(190), nullable=False)
+
+    def __repr__(self):
+        return '<UnlistedUser {}>'.format(self.user_name)

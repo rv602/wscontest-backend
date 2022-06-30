@@ -59,3 +59,18 @@ class UnlistedUser(db.Model):
 
     def __repr__(self):
         return '<UnlistedUser {}>'.format(self.user_name)
+
+@dataclass
+class IndexPages(db.Model):
+    idpb: int
+    index_name: str
+    index_page: str
+    icode: int
+
+    idpb = db.Column(db.Integer, primary_key=True)
+    index_name = db.Column(db.String(256), nullable=False)
+    index_page = db.Column(db.String(256), nullable=False)
+    icode = db.Column(db.Integer, nullable=False)
+
+    def __repr__(self):
+        return '<IndexPages {}>'.format(self.index_name)

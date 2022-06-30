@@ -20,10 +20,10 @@ class Contests(db.Model):
 
 
     c_id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), nullable=False)
+    name = db.Column(db.String(190), nullable=False)
     description = db.Column(db.Text, nullable=False)
     language = db.Column(db.String(4), nullable=False)
-    created_by = db.Column(db.String(75), nullable=False)
+    created_by = db.Column(db.String(190), nullable=False)
     created_on = db.Column(
         db.DateTime,
         nullable=False,
@@ -37,3 +37,14 @@ class Contests(db.Model):
 
     def __repr__(self):
         return '<Contest {}>'.format(self.c_id)
+
+@dataclass
+class ContestAdmin(db.Model):
+    c_id: int
+    user_name: str
+
+    c_id = db.Column(db.Integer, primary_key=True)
+    user_name = db.Column(db.String(190), nullable=False)
+
+    def __repr__(self):
+        return '<ContestAdmin {}>'.format(self.c_id)

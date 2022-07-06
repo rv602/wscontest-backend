@@ -1,4 +1,3 @@
-from xmlrpc.client import boolean
 from app import db
 from datetime import datetime
 from dataclasses import dataclass
